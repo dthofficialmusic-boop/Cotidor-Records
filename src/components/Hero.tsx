@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import spinningVideo from '../spinning-logo.mp4';
 import logoFallback from '../logo.png';
 
 export default function Hero() {
@@ -14,7 +13,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover mix-blend-screen opacity-90"
         >
-          <source src={spinningVideo} type="video/mp4" />
+          <source src="/spinning-logo.mp4" type="video/mp4" />
         </video>
         {/* Subtle vignette/fade to ensure edges are perfect */}
         <div className="absolute inset-0 bg-radial-gradient(circle, transparent 20%, black 100%) pointer-events-none" />
