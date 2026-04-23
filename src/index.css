@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-bg: #000000;
+  --color-brand-text: #FFFFFF;
+  --color-brand-muted: #FFFFFF;
+  --color-brand-border: #262626;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
+  }
+}
+
+.mono-label {
+  @apply font-mono text-[10px] uppercase tracking-widest text-brand-muted;
+}
+
+.hover-invert {
+  @apply transition-all duration-300 hover:bg-brand-text hover:text-brand-bg;
+}
+
+.grid-line {
+  @apply border-brand-border;
+}
