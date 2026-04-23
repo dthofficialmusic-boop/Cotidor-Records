@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import spinningVideo from '../spinning-logo.mp4';
+import logoFallback from '../logo.png';
 
 export default function Hero() {
   return (
