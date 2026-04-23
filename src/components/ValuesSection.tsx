@@ -21,10 +21,10 @@ export default function ValuesSection() {
           className="mb-24 text-center"
         >
           <span className="mono-label mb-8 block text-white tracking-[0.8em] font-black text-sm md:text-base border-b-2 border-white inline-block pb-1">Our Ethos</span>
-          <h2 className="font-display text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-[1.2] mx-auto max-w-4xl">
+          <h2 className="font-display text-5xl md:text-8xl font-bold uppercase tracking-tighter leading-[0.9] mx-auto max-w-4xl">
             <span className="bg-white text-black inline">Global team.</span><br /> 
             <span className="bg-white text-black inline">Real resources.</span><br /> 
-            <span className="bg-white text-black inline">Zero compromise.</span>
+            <span className="bg-white text-black inline">No compromise.</span>
           </h2>
         </motion.div>
 
