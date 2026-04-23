@@ -93,8 +93,8 @@ export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: Por
                   </div>
                   <div className="space-y-3">
                     <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Origin / Country</label>
-                    <select required className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl appearance-none cursor-pointer">
-                      <option value="" disabled selected>SELECT COUNTRY</option>
+                    <select required defaultValue="" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl appearance-none cursor-pointer">
+                      <option value="" disabled>SELECT COUNTRY</option>
                       {countries.map(country => (
                         <option key={country} value={country}>{country.toUpperCase()}</option>
                       ))}
