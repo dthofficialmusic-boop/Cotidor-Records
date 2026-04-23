@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { X, ArrowLeft } from 'lucide-react';
-import logo from '../logo.png';
+
+const logo = "https://drive.google.com/uc?export=view&id=1_OrGVSULz0It-0F873ToWG0-8Nl20dFo";
 
 interface PortalPageProps {
   onBack: () => void;

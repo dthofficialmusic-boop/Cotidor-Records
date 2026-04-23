@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import logo from '../new-logo.png';
+
+const logo = "https://drive.google.com/uc?export=view&id=1_OrGVSULz0It-0F873ToWG0-8Nl20dFo";
 
 const navLinks = [
   { name: 'OUR ETHOS', href: '#values' },
