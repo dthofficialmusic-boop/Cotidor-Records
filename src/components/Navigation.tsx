@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import logo from '../logo.png';
 
 const navLinks = [
   { name: 'OUR ETHOS', href: '#values' },
@@ -20,7 +19,7 @@ export default function Navigation({ onPortalClick, onStoreClick }: NavigationPr
       <div className="flex items-center gap-6">
         <a href="/" className="flex items-center gap-6 hover:opacity-80 transition-opacity">
           <img 
-            src={logo} 
+            src="/logo.png" 
             alt="Cotidor Logo" 
             className="h-10 w-auto brightness-0 invert"
           />

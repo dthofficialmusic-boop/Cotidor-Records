@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { X, ArrowLeft } from 'lucide-react';
-import logo from '../logo.png';
-
 interface PortalPageProps {
   onBack: () => void;
   onPrivacyClick?: () => void;
@@ -231,7 +229,7 @@ export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: Por
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="flex items-center gap-6">
               <img 
-                src={logo} 
+                src="/logo.png" 
                 alt="Cotidor Logo" 
                 className="h-24 w-auto brightness-0"
               />

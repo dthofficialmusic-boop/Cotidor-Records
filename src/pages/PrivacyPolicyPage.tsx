@@ -1,7 +1,5 @@
 import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
-import logo from '../logo.png';
-
 interface PrivacyPolicyPageProps {
   onBack: () => void;
   onTermsClick?: () => void;
@@ -18,7 +16,7 @@ export default function PrivacyPolicyPage({ onBack, onTermsClick }: PrivacyPolic
         >
           <ArrowLeft size={16} /> Back to Cotidor
         </button>
-        <img src={logo} alt="Cotidor Logo" className="h-6 w-auto grayscale opacity-50" />
+        <img src="/logo.png" alt="Cotidor Logo" className="h-6 w-auto grayscale opacity-50" />
       </nav>
 
       <main className="flex-grow pt-24 pb-20 px-6">
@@ -362,7 +360,7 @@ export default function PrivacyPolicyPage({ onBack, onTermsClick }: PrivacyPolic
               Terms of Use
             </button>
           </div>
-          <img src={logo} alt="Cotidor" className="h-4 w-auto grayscale opacity-20" />
+          <img src="/logo.png" alt="Cotidor" className="h-4 w-auto grayscale opacity-20" />
           <span>RYZER MUSIC GROUP LLC</span>
         </div>
       </footer>
