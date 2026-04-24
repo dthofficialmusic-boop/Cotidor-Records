@@ -1,4 +1,6 @@
 import { motion } from 'motion/react';
+import spinningVideo from '../assets/spinning-logo.mp4';
+
 export default function Hero() {
   return (
     <header className="relative h-[80vh] w-full flex items-center justify-center px-6 overflow-hidden bg-black">
@@ -11,7 +13,7 @@ export default function Hero() {
           playsInline
           className="w-full h-full object-cover mix-blend-screen opacity-90"
         >
-          <source src="/spinning-logo.mp4" type="video/mp4" />
+          <source src={spinningVideo} type="video/mp4" />
         </video>
         {/* Subtle vignette/fade to ensure edges are perfect */}
         <div className="absolute inset-0 bg-radial-gradient(circle, transparent 20%, black 100%) pointer-events-none" />

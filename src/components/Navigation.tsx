@@ -19,9 +19,9 @@ export default function Navigation({ onPortalClick, onStoreClick }: NavigationPr
       <div className="flex items-center gap-6">
         <a href="/" className="flex items-center gap-6 hover:opacity-80 transition-opacity">
           <img 
-            src="/logo.png" 
+            src="https://storage.googleapis.com/forcotidorrecords/white%20logo.png" 
             alt="Cotidor Logo" 
-            className="h-10 w-auto brightness-0 invert"
+            className="h-10 w-auto"
           />
           <h1 className="font-sans font-bold text-lg tracking-normal text-white uppercase leading-none">
             Cotidor Records

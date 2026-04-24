@@ -8,8 +8,13 @@ interface FooterProps {
 export default function Footer({ onPortalClick, onPrivacyClick, onTermsClick, onStoreClick }: FooterProps) {
   return (
     <footer className="py-24 px-6 border-t border-brand-border bg-black">
-      <div className="max-w-5xl mx-auto mb-24 flex flex-col md:flex-row justify-center items-start gap-12 md:gap-24 text-left">
-        <div>
+      <div className="max-w-5xl mx-auto mb-24 flex flex-col md:flex-row justify-start items-start gap-12 md:gap-24 text-left">
+        <div className="flex items-center gap-4">
+          <img 
+            src="https://storage.googleapis.com/forcotidorrecords/white%20logo.png" 
+            alt="Cotidor Logo" 
+            className="h-10 w-auto"
+          />
           <h2 className="font-display font-bold text-4xl tracking-tighter uppercase">
             Cotidor Records
           </h2>

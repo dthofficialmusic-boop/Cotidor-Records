@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import joinVideo from '../assets/join-us.mp4';
 
 const artists = [
   "AKA dollie",
@@ -23,7 +24,7 @@ export default function JoinSection() {
           playsInline
           className="w-full h-full object-cover opacity-60 grayscale transition-all duration-1000 group-hover:scale-110"
         >
-          <source src="/join-us.mp4" type="video/mp4" />
+          <source src={joinVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
