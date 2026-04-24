@@ -3,9 +3,10 @@ interface FooterProps {
   onPrivacyClick?: () => void;
   onTermsClick?: () => void;
   onStoreClick?: () => void;
+  onAboutUsClick?: () => void;
 }
 
-export default function Footer({ onPortalClick, onPrivacyClick, onTermsClick, onStoreClick }: FooterProps) {
+export default function Footer({ onPortalClick, onPrivacyClick, onTermsClick, onStoreClick, onAboutUsClick }: FooterProps) {
   return (
     <footer className="py-24 px-6 border-t border-brand-border bg-black">
       <div className="max-w-5xl mx-auto mb-24 flex flex-col md:flex-row justify-start items-start gap-12 md:gap-40 text-left">
@@ -27,7 +28,7 @@ export default function Footer({ onPortalClick, onPrivacyClick, onTermsClick, on
               {[
                 { name: 'OUR ETHOS', href: '#values' },
                 { name: 'ARTISTS', href: '#artists' },
-                { name: 'ABOUT US', href: '#about' },
+                { name: 'ABOUT US', href: '#', isAbout: true },
                 { name: 'STORE', href: '#', isStore: true },
                 { name: 'APPLY', href: '#apply', isPortal: true }
               ].map(item => (
@@ -41,6 +42,9 @@ export default function Footer({ onPortalClick, onPrivacyClick, onTermsClick, on
                       } else if (item.isStore) {
                         e.preventDefault();
                         onStoreClick?.();
+                      } else if (item.isAbout) {
+                        e.preventDefault();
+                        onAboutUsClick?.();
                       }
                     }}
                     className="text-sm uppercase tracking-widest hover:text-white transition-colors"

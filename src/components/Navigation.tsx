@@ -10,9 +10,10 @@ const navLinks = [
 interface NavigationProps {
   onPortalClick?: () => void;
   onStoreClick?: () => void;
+  onAboutUsClick?: () => void;
 }
 
-export default function Navigation({ onPortalClick, onStoreClick }: NavigationProps) {
+export default function Navigation({ onPortalClick, onStoreClick, onAboutUsClick }: NavigationProps) {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b border-white/40 px-8 h-20 flex justify-between items-center">
       {/* Brand Identity on the Left */}
@@ -39,6 +40,9 @@ export default function Navigation({ onPortalClick, onStoreClick }: NavigationPr
               if (link.name === 'STORE') {
                 e.preventDefault();
                 onStoreClick?.();
+              } else if (link.name === 'ABOUT US') {
+                e.preventDefault();
+                onAboutUsClick?.();
               }
             }}
             initial={{ opacity: 0, y: -10 }}

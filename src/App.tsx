@@ -14,9 +14,10 @@ import Footer from './components/Footer';
 import PortalPage from './pages/PortalPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
+import AboutUsPage from './pages/AboutUsPage';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'portal' | 'privacy' | 'terms'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'portal' | 'privacy' | 'terms' | 'about'>('home');
 
   // Smooth scroll to top on view change
   useEffect(() => {
@@ -55,11 +56,20 @@ export default function App() {
     );
   }
 
+  if (currentView === 'about') {
+    return (
+      <AboutUsPage 
+        onBack={() => setCurrentView('home')} 
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-brand-bg text-brand-text selection:bg-white selection:text-black">
       <Navigation 
         onPortalClick={() => setCurrentView('portal')} 
         onStoreClick={handleStoreClick}
+        onAboutUsClick={() => setCurrentView('about')}
       />
       
       <main className="pt-20">
@@ -73,13 +83,14 @@ export default function App() {
         <JoinSection />
 
         {/* About Us Section */}
-        <AboutSection />
+        <AboutSection onAboutClick={() => setCurrentView('about')} />
       </main>
 
       <Footer 
         onPortalClick={() => setCurrentView('portal')} 
         onPrivacyClick={() => setCurrentView('privacy')}
         onTermsClick={() => setCurrentView('terms')}
+        onAboutUsClick={() => setCurrentView('about')}
         onStoreClick={handleStoreClick}
       />
     </div>
