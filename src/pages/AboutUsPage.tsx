@@ -22,31 +22,23 @@ export default function AboutUsPage({ onBack }: AboutUsPageProps) {
       <main className="flex-grow pt-40 pb-24 px-6 overflow-hidden">
         <div className="max-w-6xl mx-auto space-y-32">
           {/* Hero Section */}
-          <section className="relative flex flex-col justify-center items-center text-center min-h-[60vh] py-24 md:py-32 rounded-[2rem] bg-gradient-to-r from-indigo-950 via-purple-900/60 to-black bg-[length:200%_200%] animate-gradient border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.8)] overflow-hidden">
-            {/* Aesthetic Glows */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-[2rem] z-0">
-              <div className="absolute top-[-30%] left-[-10%] w-[70%] h-[150%] bg-blue-600/30 blur-[120px] rounded-full mix-blend-screen animate-gradient bg-[length:200%_200%]"></div>
-              <div className="absolute bottom-[-30%] right-[-10%] w-[70%] h-[150%] bg-fuchsia-600/30 blur-[120px] rounded-full mix-blend-screen animate-gradient bg-[length:200%_200%]"></div>
-            </div>
-
-            <div className="relative z-10 flex flex-col items-center justify-center gap-6 md:gap-10 p-8">
-              <motion.span 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="mono-label text-xs md:text-sm tracking-[1em] ml-[1em] font-black text-white/60 block"
-              >
-                IDENTITY / ORIGIN
-              </motion.span>
-              <motion.h1 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-6xl md:text-[10rem] font-display font-black tracking-tighter leading-none text-white lowercase"
-              >
-                about us
-              </motion.h1>
-            </div>
+          <section className="text-center space-y-12">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="mono-label text-xs md:text-sm tracking-[1em] font-black text-white/40 block"
+            >
+              IDENTITY / ORIGIN
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-6xl md:text-[10rem] font-display font-black tracking-tighter leading-[0.85] text-white lowercase ombre-text-hover cursor-default"
+            >
+              about us
+            </motion.h1>
           </section>
 
           {/* Core Identity Grid */}

@@ -10,6 +10,7 @@ import Hero from './components/Hero';
 import ValuesSection from './components/ValuesSection';
 import JoinSection from './components/JoinSection';
 import AboutSection from './components/AboutSection';
+import MerchSection from './components/MerchSection';
 import Footer from './components/Footer';
 import PortalPage from './pages/PortalPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -84,6 +85,9 @@ export default function App() {
 
         {/* About Us Section */}
         <AboutSection onAboutClick={() => setCurrentView('about')} />
+
+        {/* Merch Section */}
+        <MerchSection onStoreClick={handleStoreClick} />
       </main>
 
       <Footer 
