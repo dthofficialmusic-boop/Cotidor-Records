@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import joinVideo from '../assets/join-us.mp4';
 
 const artists = [
   "AKA dollie",
@@ -24,7 +23,7 @@ export default function JoinSection() {
           playsInline
           className="w-full h-full object-cover opacity-60 grayscale transition-all duration-1000 group-hover:scale-110"
         >
-          <source src={joinVideo} type="video/mp4" />
+          <source src="https://storage.googleapis.com/forcotidorrecords/0422%20(1).mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
@@ -56,7 +55,7 @@ export default function JoinSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.5 }}
-              className="font-display text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter cursor-crosshair transition-all duration-300 select-none text-white hover:text-white hover:scale-110 text-center"
+              className="font-display text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tighter cursor-crosshair transition-all duration-300 select-none text-white hover:scale-110 text-center"
             >
               {artist}
             </motion.div>
