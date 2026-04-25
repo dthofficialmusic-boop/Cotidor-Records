@@ -53,9 +53,8 @@ export default function PortalPage() {
       const data = await response.json();
 
       if (data.success) {
-        console.log("Web3Forms portal success, triggering confirmation email...");
         // Send confirmation email via backend
-        fetch(window.location.origin + "/api/send-confirmation", {
+        fetch("/api/send-confirmation", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -63,13 +62,12 @@ export default function PortalPage() {
             name: formData.get("artistName"),
             type: "portal"
           })
-        }).then(res => {
+        }).then(async res => {
           if (!res.ok) {
-            console.error("Confirmation email server error", res.status);
-          } else {
-            console.log("Portal confirmation email request sent successfully");
+            const resJson = await res.json().catch(() => ({}));
+            console.error("Confirmation email server error", res.status, resJson);
           }
-        }).catch(e => console.error("Confirmation email fetch error", e));
+        }).catch(e => console.error("Portal confirmation email fetch error", e));
 
         setSubmitted(true);
         setTimeout(() => {
@@ -158,8 +156,8 @@ export default function PortalPage() {
                 {/* INQUIRY & PROCESSING INFO */}
                 <div className="space-y-6 pt-6 border-t border-black/10">
                   <p className="font-mono text-[11px] uppercase tracking-widest text-black font-black leading-relaxed">
-                    Any inquiries regarding your application should be sent to: <br />
-                    <a href="mailto:submissions@cotidor.com" className="underline hover:opacity-70 transition-opacity font-black">submissions@cotidor.com</a>
+                    ANY INQUIRIES REGARDING YOUR APPLICATION SHOULD BE SENT TO: <br />
+                    <a href="mailto:submissions@cotidor.com" className="underline hover:opacity-70 transition-opacity font-black">submissions@cotidor.com</a> OR BY SUBMITTING A REQUEST FORM AT OUR <Link to="/contact" className="underline hover:opacity-70 transition-opacity font-black">CONTACT SECTION</Link>.
                   </p>
                   <p className="font-mono text-[11px] uppercase tracking-widest text-black font-black leading-relaxed">
                     Your applications will be processed by Ryzer Music Group LLC., the parent company of Cotidor Records. Your application will typically be processed within 2 weeks.
@@ -249,8 +247,8 @@ export default function PortalPage() {
                 
                 <div className="space-y-6 pt-12 border-t border-black/10">
                   <p className="font-mono text-[11px] uppercase tracking-widest text-black font-black leading-relaxed">
-                    Any inquiries regarding your application should be sent to: <br />
-                    <a href="mailto:submissions@cotidor.com" className="underline hover:opacity-70 transition-opacity font-black">submissions@cotidor.com</a>
+                    ANY INQUIRIES REGARDING YOUR APPLICATION SHOULD BE SENT TO: <br />
+                    <a href="mailto:submissions@cotidor.com" className="underline hover:opacity-70 transition-opacity font-black">submissions@cotidor.com</a> OR BY SUBMITTING A REQUEST FORM AT OUR <Link to="/contact" className="underline hover:opacity-70 transition-opacity font-black">CONTACT SECTION</Link>.
                   </p>
                   <p className="font-mono text-[11px] uppercase tracking-widest text-black font-black leading-relaxed">
                     Your applications will be processed by Ryzer Music Group LLC., the parent company of Cotidor Records. Your application will typically be processed within 2 weeks.

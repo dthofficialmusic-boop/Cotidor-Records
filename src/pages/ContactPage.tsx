@@ -15,8 +15,6 @@ export default function ContactPage() {
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", "674efca1-3a2f-4242-a40b-b1c8eb764d19");
 
-    console.log("Submitting to Web3Forms...");
-
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -26,9 +24,8 @@ export default function ContactPage() {
       const data = await response.json();
 
       if (data.success) {
-        console.log("Web3Forms success, triggering confirmation email...");
-        // Send confirmation email via backend (don't block the UI success message)
-        fetch(window.location.origin + "/api/send-confirmation", {
+        // Send confirmation email via backend
+        fetch("/api/send-confirmation", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -36,11 +33,10 @@ export default function ContactPage() {
             name: formData.get("name"),
             type: "contact"
           })
-        }).then(res => {
+        }).then(async res => {
           if (!res.ok) {
-            console.error("Confirmation email server error", res.status);
-          } else {
-            console.log("Confirmation email request sent successfully");
+            const resJson = await res.json().catch(() => ({}));
+            console.error("Confirmation email server error", res.status, resJson);
           }
         }).catch(e => console.error("Confirmation email fetch error", e));
 
@@ -89,7 +85,7 @@ export default function ContactPage() {
               transition={{ delay: 0.2 }}
               className="text-lg md:text-2xl font-medium text-white/80 max-w-2xl leading-relaxed"
             >
-              get in touch. whether you're an artist looking for a home, or a partner looking to collaborate, our inbox is open.
+              get in touch. whether you're an artist looking for a home, or a partner looking to collaborate, our team is ready to listen.
             </motion.p>
           </section>
 
@@ -176,9 +172,9 @@ export default function ContactPage() {
                     className="absolute inset-0 bg-white z-10 flex flex-col items-center justify-center text-center p-8"
                   >
                     <CheckCircle size={64} className="mb-6 mb-4 text-green-500" strokeWidth={1.5} />
-                    <h3 className="text-3xl font-display font-black mb-4">submission received</h3>
+                    <h3 className="text-3xl font-display font-black mb-4">message received</h3>
                     <p className="text-black/60 font-mono text-xs tracking-widest uppercase">
-                      thank you. you should receive a response in 1-2 business days.
+                      thank you. your message has been received by our team. you should receive a response in 1-2 business days.
                     </p>
                     <button 
                       onClick={() => setShowSuccess(false)}
