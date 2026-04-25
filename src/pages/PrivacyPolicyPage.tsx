@@ -1,18 +1,15 @@
 import { motion } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
-interface PrivacyPolicyPageProps {
-  onBack: () => void;
-  onTermsClick?: () => void;
-}
-
-export default function PrivacyPolicyPage({ onBack, onTermsClick }: PrivacyPolicyPageProps) {
+export default function PrivacyPolicyPage() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-[100dvh] bg-white text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900 flex flex-col">
       {/* HEADER */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 px-6 h-16 flex justify-between items-center">
         <button 
-          onClick={onBack}
+          onClick={() => navigate('/')}
           className="flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
         >
           <ArrowLeft size={16} /> Back to Cotidor
@@ -354,12 +351,12 @@ export default function PrivacyPolicyPage({ onBack, onTermsClick }: PrivacyPolic
         <div className="max-w-3xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-slate-400 font-medium uppercase tracking-widest">
           <div className="flex gap-6">
             <span>© 2026 COTIDOR RECORDS</span>
-            <button 
-              onClick={onTermsClick}
+            <Link 
+              to="/terms"
               className="hover:text-slate-900 transition-colors underline underline-offset-4"
             >
               Terms of Use
-            </button>
+            </Link>
           </div>
           <img src="https://storage.googleapis.com/forcotidorrecords/white%20logo.png" alt="Cotidor" className="h-4 w-auto grayscale opacity-20" />
           <span>RYZER MUSIC GROUP LLC</span>

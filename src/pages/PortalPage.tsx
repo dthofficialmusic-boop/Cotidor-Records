@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { X, ArrowLeft } from 'lucide-react';
-
-interface PortalPageProps {
-  onBack: () => void;
-  onPrivacyClick?: () => void;
-  onTermsClick?: () => void;
-}
+import { useNavigate, Link } from 'react-router-dom';
 
 const countries = [
   "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan",
@@ -36,17 +31,41 @@ const countries = [
   "Zambia", "Zimbabwe", "Other"
 ].sort();
 
-export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: PortalPageProps) {
+export default function PortalPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isRepresented, setIsRepresented] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      onBack();
-      setSubmitted(false);
-    }, 8000);
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "674efca1-3a2f-4242-a40b-b1c8eb764d19");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        setTimeout(() => {
+          navigate('/');
+          setSubmitted(false);
+        }, 8000);
+      } else {
+        console.error("Form submission failed", data);
+      }
+    } catch (error) {
+      console.error("Form submission error", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,7 +73,7 @@ export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: Por
       {/* HEADER */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/10 px-8 h-20 flex justify-between items-center">
         <button 
-          onClick={onBack}
+          onClick={() => navigate('/')}
           className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity"
         >
           <ArrowLeft size={14} /> Back to Cotidor
@@ -82,19 +101,19 @@ export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: Por
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                   <div className="space-y-3">
                     <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Artist / Project Name</label>
-                    <input required type="text" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="ALIAS" />
+                    <input required type="text" name="artistName" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="ALIAS" />
                   </div>
                   <div className="space-y-3">
                     <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Legal / Full Name</label>
-                    <input required type="text" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="FULL NAME" />
+                    <input required type="text" name="legalName" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="FULL NAME" />
                   </div>
                   <div className="space-y-3">
                     <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Direct Contact Email</label>
-                    <input required type="email" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="EMAIL@MAIL.COM" />
+                    <input required type="email" name="email" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="EMAIL@MAIL.COM" />
                   </div>
                   <div className="space-y-3">
                     <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Origin / Country</label>
-                    <select required defaultValue="" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl appearance-none cursor-pointer">
+                    <select required name="country" defaultValue="" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl appearance-none cursor-pointer">
                       <option value="" disabled>SELECT COUNTRY</option>
                       {countries.map(country => (
                         <option key={country} value={country}>{country.toUpperCase()}</option>
@@ -105,17 +124,17 @@ export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: Por
 
                 <div className="space-y-3">
                   <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Primary Portfolio/Demo URL</label>
-                  <input required type="url" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors font-black text-xl placeholder:text-black/30" placeholder="HTTPS://SOUNDCLOUD.COM/..." />
+                  <input required type="url" name="portfolioUrl" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors font-black text-xl placeholder:text-black/30" placeholder="HTTPS://SOUNDCLOUD.COM/..." />
                 </div>
 
                 <div className="space-y-3">
                   <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Artist Genre</label>
-                  <input required type="text" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="GENRE" />
+                  <input required type="text" name="genre" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="GENRE" />
                 </div>
 
                 <div className="space-y-3">
                   <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Sonic Philosophy / Bio</label>
-                  <textarea className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl resize-none placeholder:text-black/30" rows={4} placeholder="DESCRIBE YOUR VISION"></textarea>
+                  <textarea name="bio" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl resize-none placeholder:text-black/30" rows={4} placeholder="DESCRIBE YOUR VISION"></textarea>
                 </div>
 
                 {/* INQUIRY & PROCESSING INFO */}
@@ -154,11 +173,11 @@ export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: Por
                     >
                       <div className="space-y-3">
                         <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Representative Name</label>
-                        <input required type="text" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="NAME" />
+                        <input required type="text" name="representativeName" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="NAME" />
                       </div>
                       <div className="space-y-3">
                         <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Representative Email</label>
-                        <input required type="email" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="EMAIL@AGENCY.COM" />
+                        <input required type="email" name="representativeEmail" className="w-full bg-transparent border-b-2 border-black/30 focus:border-black text-black outline-none py-3 transition-colors uppercase font-black text-xl placeholder:text-black/30" placeholder="EMAIL@AGENCY.COM" />
                       </div>
                     </motion.div>
                   )}
@@ -243,18 +262,18 @@ export default function PortalPage({ onBack, onPrivacyClick, onTermsClick }: Por
           <div className="flex flex-col items-center gap-4">
             <span className="font-mono text-[11px] uppercase tracking-widest text-black/60 text-center px-4">© 2026 COTIDOR RECORDS, A SUBSIDIARY OF RYZER MUSIC GROUP LLC.</span>
             <div className="flex gap-6">
-              <button 
-                onClick={onPrivacyClick}
+              <Link 
+                to="/privacy"
                 className="font-mono text-[11px] uppercase tracking-widest text-black/60 hover:text-black transition-colors underline underline-offset-4 cursor-pointer"
               >
                 Privacy Policy
-              </button>
-              <button 
-                onClick={onTermsClick}
+              </Link>
+              <Link 
+                to="/terms"
                 className="font-mono text-[11px] uppercase tracking-widest text-black/60 hover:text-black transition-colors underline underline-offset-4 cursor-pointer"
               >
                 Terms of Use
-              </button>
+              </Link>
             </div>
           </div>
         </div>

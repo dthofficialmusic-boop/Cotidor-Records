@@ -1,11 +1,8 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-interface AboutSectionProps {
-  onAboutClick?: () => void;
-}
-
-export default function AboutSection({ onAboutClick }: AboutSectionProps) {
+export default function AboutSection() {
   return (
     <section id="about" className="py-24 px-6 bg-white text-black uppercase">
       <div className="max-w-4xl mx-auto">
@@ -33,13 +30,13 @@ export default function AboutSection({ onAboutClick }: AboutSectionProps) {
               </p>
             </div>
 
-            <button 
-              onClick={onAboutClick}
+            <Link 
+              to="/about"
               className="group relative inline-flex items-center gap-2 px-8 py-4 bg-black text-white text-xs font-black tracking-[0.4em] hover:bg-black/90 transition-all active:scale-95"
             >
               ABOUT US
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>
