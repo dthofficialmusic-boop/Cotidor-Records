@@ -28,6 +28,7 @@ async function startServer() {
             <h2>submission received.</h2>
             <p>hello ${name},</p>
             <p>thank you for reaching out to us. your message has been safely delivered to our inbox. you should receive a response in 1-2 business days.</p>
+            <p>if you need to reach us directly, you can contact us through info@cotidor.com, submissions@cotidor.com, or artists@cotidor.com.</p>
             <br/>
             <p>best regards,</p>
             <p><strong>cotidor records</strong></p>
@@ -41,6 +42,7 @@ async function startServer() {
             <p>hello ${name},</p>
             <p>thank you for submitting your application through the cotidor portal. our A&R team will review your submission.</p>
             <p>due to the volume of submissions, we may not be able to reply to everyone, but we review every project.</p>
+            <p>if you need to reach us directly, you can contact us through info@cotidor.com, submissions@cotidor.com, or artists@cotidor.com.</p>
             <br/>
             <p>best regards,</p>
             <p><strong>cotidor records</strong></p>
@@ -50,10 +52,9 @@ async function startServer() {
         return res.status(400).json({ error: "Invalid type" });
       }
 
-      // Using a generic sender email. In production with Resend, you'd need a verified domain like noreply@cotidor.com.
-      // Resend allows sending FROM onboarding@resend.dev to the verified email address on the free tier without a domain.
+      // Domain verified: Sending from the official email
       const { data, error } = await resend.emails.send({
-        from: "Cotidor Records <onboarding@resend.dev>",
+        from: "Cotidor Records <noreply@cotidor.com>",
         to: [email],
         subject: subject,
         html: html,
