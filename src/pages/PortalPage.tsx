@@ -53,6 +53,21 @@ export default function PortalPage() {
       const data = await response.json();
 
       if (data.success) {
+        // Send confirmation email via backend
+        try {
+          await fetch("/api/send-confirmation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: formData.get("email"),
+              name: formData.get("artistName"),
+              type: "portal"
+            })
+          });
+        } catch (e) {
+          console.error("Confirmation email error", e);
+        }
+
         setSubmitted(true);
         setTimeout(() => {
           navigate('/');

@@ -24,6 +24,21 @@ export default function ContactPage() {
       const data = await response.json();
 
       if (data.success) {
+        // Also send confirmation email via backend
+        try {
+          await fetch("/api/send-confirmation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: formData.get("email"),
+              name: formData.get("name"),
+              type: "contact"
+            })
+          });
+        } catch (e) {
+          console.error("Confirmation email error", e);
+        }
+
         setShowSuccess(true);
         e.currentTarget.reset();
       } else {
