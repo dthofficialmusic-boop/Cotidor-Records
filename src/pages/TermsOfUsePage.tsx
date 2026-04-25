@@ -8,7 +8,7 @@ interface TermsOfUsePageProps {
 
 export default function TermsOfUsePage({ onBack, onPrivacyClick }: TermsOfUsePageProps) {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900 flex flex-col">
+    <div className="min-h-[100dvh] bg-white text-slate-900 font-sans selection:bg-slate-200 selection:text-slate-900 flex flex-col">
       {/* HEADER */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 px-6 h-16 flex justify-between items-center">
         <button 

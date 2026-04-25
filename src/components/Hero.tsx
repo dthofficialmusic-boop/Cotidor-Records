@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 export default function Hero() {
   return (
-    <header className="relative h-[80vh] w-full flex items-center justify-center px-6 overflow-hidden bg-black">
+    <header className="relative min-h-[80dvh] w-full flex flex-col items-center justify-center px-6 overflow-hidden bg-black">
       {/* Hero Video Background - Seamless Integration */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
@@ -9,7 +9,7 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover mix-blend-screen opacity-90 -translate-y-16 scale-95"
+          className="w-full h-full object-contain md:object-cover mix-blend-screen opacity-90 mt-10 md:mt-0 md:-translate-y-16 md:scale-95"
         >
           <source src="https://storage.googleapis.com/forcotidorrecords/0422%20(1)(2).mp4" type="video/mp4" />
         </video>

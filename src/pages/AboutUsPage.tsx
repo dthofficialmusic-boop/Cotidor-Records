@@ -7,7 +7,7 @@ interface AboutUsPageProps {
 
 export default function AboutUsPage({ onBack }: AboutUsPageProps) {
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col uppercase">
+    <div className="min-h-[100dvh] bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col uppercase">
       {/* HEADER */}
       <nav className="fixed top-0 left-0 w-full z-50 bg-black/95 backdrop-blur-sm border-b border-white/10 px-6 h-20 flex justify-between items-center">
         <button 

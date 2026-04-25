@@ -66,7 +66,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-bg text-brand-text selection:bg-white selection:text-black">
+    <div className="min-h-[100dvh] bg-brand-bg text-brand-text selection:bg-white selection:text-black overflow-x-hidden">
       <Navigation 
         onPortalClick={() => setCurrentView('portal')} 
         onStoreClick={handleStoreClick}
