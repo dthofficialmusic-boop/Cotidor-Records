@@ -15,6 +15,8 @@ export default function ContactPage() {
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", "674efca1-3a2f-4242-a40b-b1c8eb764d19");
 
+    console.log("Submitting to Web3Forms...");
+
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -24,20 +26,23 @@ export default function ContactPage() {
       const data = await response.json();
 
       if (data.success) {
-        // Also send confirmation email via backend
-        try {
-          await fetch("/api/send-confirmation", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: formData.get("email"),
-              name: formData.get("name"),
-              type: "contact"
-            })
-          });
-        } catch (e) {
-          console.error("Confirmation email error", e);
-        }
+        console.log("Web3Forms success, triggering confirmation email...");
+        // Send confirmation email via backend (don't block the UI success message)
+        fetch(window.location.origin + "/api/send-confirmation", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.get("email"),
+            name: formData.get("name"),
+            type: "contact"
+          })
+        }).then(res => {
+          if (!res.ok) {
+            console.error("Confirmation email server error", res.status);
+          } else {
+            console.log("Confirmation email request sent successfully");
+          }
+        }).catch(e => console.error("Confirmation email fetch error", e));
 
         setShowSuccess(true);
         e.currentTarget.reset();

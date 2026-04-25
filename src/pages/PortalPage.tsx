@@ -53,20 +53,23 @@ export default function PortalPage() {
       const data = await response.json();
 
       if (data.success) {
+        console.log("Web3Forms portal success, triggering confirmation email...");
         // Send confirmation email via backend
-        try {
-          await fetch("/api/send-confirmation", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              email: formData.get("email"),
-              name: formData.get("artistName"),
-              type: "portal"
-            })
-          });
-        } catch (e) {
-          console.error("Confirmation email error", e);
-        }
+        fetch(window.location.origin + "/api/send-confirmation", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: formData.get("email"),
+            name: formData.get("artistName"),
+            type: "portal"
+          })
+        }).then(res => {
+          if (!res.ok) {
+            console.error("Confirmation email server error", res.status);
+          } else {
+            console.log("Portal confirmation email request sent successfully");
+          }
+        }).catch(e => console.error("Confirmation email fetch error", e));
 
         setSubmitted(true);
         setTimeout(() => {
