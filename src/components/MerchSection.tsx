@@ -36,8 +36,24 @@ export default function MerchSection({ onStoreClick }: MerchSectionProps) {
   };
 
   return (
-    <section className="py-24 px-6 bg-black text-white uppercase border-t border-white/10">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section className="relative py-24 bg-black text-white uppercase border-t border-white/10 overflow-hidden">
+      {/* Top Marquee */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden whitespace-nowrap py-3 border-y border-white bg-black z-10">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+          className="inline-block"
+        >
+          <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
+            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
+          </span>
+          <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
+            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
+          </span>
+        </motion.div>
+      </div>
+
+      <div className="max-w-6xl mx-auto space-y-16 px-6 relative z-0 py-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
           <div className="space-y-4 max-w-lg">
              <span className="mono-label text-sm text-white/40 tracking-[0.8em] font-black block">HARDWARE</span>
@@ -84,6 +100,22 @@ export default function MerchSection({ onStoreClick }: MerchSectionProps) {
              </motion.div>
           ))}
         </div>
+      </div>
+
+      {/* Bottom Marquee */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden whitespace-nowrap py-3 border-y border-white bg-black z-10">
+        <motion.div
+          animate={{ x: ["-50%", "0%"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+          className="inline-block"
+        >
+          <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
+            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
+          </span>
+          <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
+            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
+          </span>
+        </motion.div>
       </div>
     </section>
   );
