@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 const values = [
   "Your vision leads.",
   "You keep full ownership.",
-  "You take the lion's share.",
+  "You keep every penny.",
   "You see every number.",
   "No long-term traps.",
   "You make the final call."
@@ -22,8 +22,8 @@ export default function ValuesSection() {
         >
           <span className="mono-label mb-8 block text-white tracking-[0.8em] font-black text-sm md:text-base border-b-2 border-white inline-block pb-1">Our Ethos</span>
           <h2 className="font-display text-4xl sm:text-5xl md:text-8xl font-bold lowercase tracking-tighter leading-[1.1] mx-auto max-w-4xl">
-            <span className="bg-white text-black inline relative z-10">global team.</span><br /> 
-            <span className="bg-white text-black inline relative z-0">no compromise.</span>
+            <span className="bg-white text-black inline relative z-10">Free help for artists.</span><br /> 
+            <span className="bg-white text-black inline relative z-0">No contracts. Ever.</span>
           </h2>
         </motion.div>
 

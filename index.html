@@ -4,7 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cotidor Records - Official Website</title>
-    <link rel="icon" type="image/png" href="https://storage.googleapis.com/forcotidorrecords/white%20logo.png" />
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="https://storage.googleapis.com/forcotidorrecords/white%20logo.png" />
+    <script>
+      function updateFavicon() {
+        const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.getElementById('dynamic-favicon').href = isDark 
+          ? "https://storage.googleapis.com/forcotidorrecords/white%20logo.png"
+          : "https://storage.googleapis.com/forcotidorrecords/black%20logo.png";
+      }
+      if (window.matchMedia) {
+        updateFavicon();
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFavicon);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

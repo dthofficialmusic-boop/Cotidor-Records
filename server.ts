@@ -61,14 +61,17 @@ async function startServer() {
             <p style="margin-bottom: 25px;">Hello ${name || 'there'},</p>
             <p style="margin-bottom: 25px;">Thank you for reaching out. Your message has been received by our team and is currently being processed.</p>
             <p style="margin-bottom: 25px;">We aim to respond to all inquiries within 1-2 business days.</p>
-            <p style="margin-bottom: 15px;">Any inquiries regarding your request should be sent to:</p>
+            
+            <p style="margin-bottom: 15px; font-style: italic; color: #666;">Please do not reply to this email. For any further communication, please use the following addresses:</p>
             <p style="margin: 0;"><strong>info@cotidor.com</strong></p>
             <p style="margin: 0;"><strong>submissions@cotidor.com</strong></p>
             <p style="margin: 0;"><strong>artists@cotidor.com</strong></p>
-            <p style="margin-top: 15px; font-size: 13px;">Or by submitting a request form at our contact section.</p>
+            
+            <p style="margin-top: 40px; margin-bottom: 0;">Kind regards,</p>
+            <p style="margin: 0;"><strong>Cotidor Records Support Team</strong></p>
             
             <div style="${footerStyles}">
-              <p style="margin: 0;"><strong>Cotidor Records</strong></p>
+              <p style="margin: 0;">Cotidor Records</p>
             </div>
           </div>
         `;
@@ -76,18 +79,22 @@ async function startServer() {
         subject = "Application Received - Cotidor Portal";
         html = `
           <div style="${commonStyles}">
-            <div style="${headerStyles}">Cotidor Portal</div>
+            <div style="${headerStyles}">Cotidor Records</div>
             <p style="margin-bottom: 25px;">Hello ${name || 'there'},</p>
             <p style="margin-bottom: 25px;">Your application has been received by our team through the official Cotidor Portal.</p>
-            <p style="margin-bottom: 25px;">Our A&R department reviews every submission carefully. Due to the high volume of projects we receive, we are only able to contact artists whose work we wish to discuss further.</p>
-            <p style="margin-bottom: 15px;">ANY INQUIRIES REGARDING YOUR APPLICATION SHOULD BE SENT TO:</p>
+            <p style="margin-bottom: 25px;">Our A&R department reviews every submission carefully. Our team will get in touch with you within 2 weeks of your application.</p>
+            
+            <p style="margin-bottom: 15px; font-style: italic; color: #666;">Please do not reply to this email. ANY INQUIRIES REGARDING YOUR APPLICATION SHOULD BE SENT TO:</p>
             <p style="margin: 0;"><strong>submissions@cotidor.com</strong></p>
             <p style="margin: 0;"><strong>info@cotidor.com</strong></p>
             <p style="margin: 0;"><strong>artists@cotidor.com</strong></p>
             <p style="margin-top: 15px; font-size: 13px;">Or by submitting a request form at our contact section.</p>
+
+            <p style="margin-top: 40px; margin-bottom: 0;">Kind regards,</p>
+            <p style="margin: 0;"><strong>Cotidor Records Talent Management</strong></p>
             
             <div style="${footerStyles}">
-              <p style="margin: 0;"><strong>Cotidor Records</strong></p>
+              <p style="margin: 0;">Cotidor Records</p>
               <p style="margin: 5px 0 0 0;">A&R Division</p>
             </div>
           </div>

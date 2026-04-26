@@ -59,9 +59,7 @@ export default function Footer({ onStoreClick }: FooterProps) {
             <ul className="space-y-3">
               {[
                 { name: 'Instagram', href: 'https://www.instagram.com/cotidorrecords/' },
-                { name: 'Bandcamp', href: '#' },
-                { name: 'Soundcloud', href: '#' },
-                { name: 'Discord', href: '#' }
+                { name: 'YouTube', href: 'https://www.youtube.com/@cotidorofficial' }
               ].map(item => (
                 <li key={item.name}>
                   <a href={item.href} target="_blank" rel="noopener noreferrer" className="text-sm uppercase tracking-widest hover:text-white transition-colors">{item.name}</a>

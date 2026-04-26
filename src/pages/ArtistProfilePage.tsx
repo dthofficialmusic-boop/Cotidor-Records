@@ -108,17 +108,23 @@ export default function ArtistProfilePage() {
 
               <div className="flex flex-col gap-6">
                 <h3 className="text-sm font-black tracking-widest text-white/50">listen / follow</h3>
-                <div className="flex flex-wrap gap-4">
-                  <a href="#" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
-                    <Play size={16} /> spotify
-                  </a>
-                  <a href="#" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
-                    <Play size={16} /> soundcloud
-                  </a>
-                  <a href="#" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
-                    <Instagram size={16} /> instagram
-                  </a>
-                </div>
+                {!['christopher-lucio', 'grlvenom', 'withprivilege', 'yohara-scott'].includes(artist.id) && (
+                  <div className="flex flex-wrap gap-4">
+                    {artist.id !== 'yllona-madison' && (
+                      <>
+                        <a href="#" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                          <Play size={16} /> spotify
+                        </a>
+                        <a href="#" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                          <Play size={16} /> soundcloud
+                        </a>
+                      </>
+                    )}
+                    <a href={artist.id === 'yllona-madison' ? "https://www.instagram.com/yllonaamadison/" : "#"} target={artist.id === 'yllona-madison' ? "_blank" : undefined} rel={artist.id === 'yllona-madison' ? "noopener noreferrer" : undefined} className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                      <Instagram size={16} /> instagram
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
 

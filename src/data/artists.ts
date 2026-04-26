@@ -1,10 +1,10 @@
 export const artistsData = [
   { 
     id: "christopher-lucio",
-    name: "Christopher Lucio", 
+    name: "not lucio", 
     image: "https://storage.googleapis.com/forcotidorrecords/ChristopherLucio2.jpg", 
     hoverImage: "https://storage.googleapis.com/forcotidorrecords/ChristopherLucio1.png",
-    bio: "christopher lucio is an upcoming artist pushing the boundaries of sound, blending electronic and avant-garde elements to create a distinctive sonic atmosphere. signing with cotidor records, he is preparing to release his highly anticipated debut project.",
+    bio: "not lucio is an upcoming artist pushing the boundaries of sound, blending electronic and avant-garde elements to create a distinctive sonic atmosphere. signing with cotidor records, he is preparing to release his highly anticipated debut project.",
     genre: "Electronic / Avant-Garde"
   },
   { 

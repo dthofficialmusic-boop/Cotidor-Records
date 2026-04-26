@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import { Artist } from '../types';
 
 const artists: Artist[] = [
-  { id: '1', name: 'Xenon Pulse', genre: 'Industrial Techno', imageUrl: 'https://images.unsplash.com/photo-1543132220-4bf3de82180c?q=80&w=1887&auto=format&fit=crop' },
+  { id: '1', name: 'not lucio', genre: 'Industrial Techno', imageUrl: 'https://images.unsplash.com/photo-1543132220-4bf3de82180c?q=80&w=1887&auto=format&fit=crop' },
   { id: '2', name: 'Lumina', genre: 'Ambient Core', imageUrl: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?q=80&w=1760&auto=format&fit=crop' },
   { id: '3', name: 'Vector Void', genre: 'Experimental Elec', imageUrl: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1887&auto=format&fit=crop' },
 ];

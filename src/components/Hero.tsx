@@ -28,7 +28,7 @@ export default function Hero() {
             COTIDOR RECORDS
           </h1>
           <p className="mono-label text-xs md:text-sm text-white/80 tracking-[0.4em] uppercase font-bold shadow-black drop-shadow-2xl">
-            An independent record label for the artist, for the people.
+            An artist-first support collective for the artist, for the people.
           </p>
           <motion.div
             initial={{ opacity: 0 }}
