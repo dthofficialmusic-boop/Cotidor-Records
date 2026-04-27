@@ -35,11 +35,13 @@ export default function PortalPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isRepresented, setIsRepresented] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", "674efca1-3a2f-4242-a40b-b1c8eb764d19");
@@ -81,9 +83,11 @@ export default function PortalPage() {
         }, 8000);
       } else {
         console.error("Form submission failed", data);
+        setError(data.message || "Submission failed. Please try again or email submissions@cotidor.com directly.");
       }
     } catch (error) {
       console.error("Form submission error", error);
+      setError("An unexpected error occurred. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -119,6 +123,11 @@ export default function PortalPage() {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-12 border-t border-black/40 pt-8">
+                {error && (
+                  <div className="p-6 bg-red-50 border-l-4 border-red-500 text-red-900 font-mono text-xs uppercase tracking-widest">
+                    {error}
+                  </div>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                   <div className="space-y-3">
                     <label className="font-mono text-[11px] uppercase tracking-widest font-black text-black">Artist / Project Name</label>

@@ -7,10 +7,13 @@ export default function ContactPage() {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
+    setShowSuccess(false);
 
     const formData = new FormData(e.currentTarget);
     formData.append("access_key", "674efca1-3a2f-4242-a40b-b1c8eb764d19");
@@ -49,9 +52,11 @@ export default function ContactPage() {
         e.currentTarget.reset();
       } else {
         console.error("Form submission failed", data);
+        setError(data.message || "Something went wrong. Please try again or email info@cotidor.com directly.");
       }
     } catch (error) {
       console.error("Form submission error", error);
+      setError("An unexpected error occurred. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
       // Optional: Auto close success message after 5 seconds
@@ -144,6 +149,11 @@ export default function ContactPage() {
             <div className="bg-white text-black p-8 md:p-16 w-full lg:max-w-[70%] relative">
               <h2 className="text-3xl md:text-4xl font-display font-black mb-10 text-black">send a message</h2>
               <form className="space-y-8" onSubmit={handleSubmit}>
+                {error && (
+                  <div className="p-4 bg-red-50 border-l-4 border-red-500 text-red-900 font-mono text-[10px] uppercase tracking-widest leading-relaxed">
+                    {error}
+                  </div>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
                   <div className="space-y-2 relative group">
                     <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-widest text-black/60 block font-bold">Name</label>

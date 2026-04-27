@@ -16,11 +16,13 @@ async function startServer() {
 
   // API Route for sending confirmation email
   app.post("/api/send-confirmation", async (req, res) => {
-    console.log("Confirmation requested:", req.body);
+    console.log("--- Confirmation Email Request ---");
+    console.log("Body:", JSON.stringify(req.body, null, 2));
     const { email, name, type } = req.body;
 
     try {
       if (!email) {
+        console.error("Error: Email is missing in request body");
         return res.status(400).json({ error: "Email is required" });
       }
       
@@ -91,7 +93,7 @@ async function startServer() {
             <p style="margin: 0;"><strong>info@cotidor.com</strong></p>
             <p style="margin: 0;"><strong>artists@cotidor.com</strong></p>
             <p style="margin-top: 15px; font-size: 13px;">Or by submitting a request form at our contact section.</p>
-
+ 
             <p style="margin-top: 40px; margin-bottom: 0;">Kind regards,</p>
             <p style="margin: 0;"><strong>Cotidor Records Talent Management</strong></p>
             
@@ -102,24 +104,41 @@ async function startServer() {
           </div>
         `;
       } else {
+        console.error("Error: Invalid type", type);
         return res.status(400).json({ error: "Invalid type" });
       }
 
-      const result = await resend.emails.send({
+      console.log("Sending email to Resend...");
+      
+      const emailPayload: any = {
         from: "Cotidor Records <noreply@cotidor.com>",
         to: [email],
-        cc: type === "portal" ? ["submissions@cotidor.com"] : type === "contact" ? ["info@cotidor.com"] : [],
         replyTo: "info@cotidor.com",
         subject: subject,
         html: html,
-      });
+      };
+
+      // Add CC if logic matches
+      const ccAddresses = type === "portal" ? ["submissions@cotidor.com"] : type === "contact" ? ["info@cotidor.com"] : [];
+      
+      // Filter out CC addresses that are the same as the TO address to avoid Resend errors
+      const filteredCC = ccAddresses.filter(addr => addr.toLowerCase() !== email.toLowerCase());
+      
+      if (filteredCC.length > 0) {
+        emailPayload.cc = filteredCC;
+      }
+
+      const result = await resend.emails.send(emailPayload);
 
       if (result.error) {
+        console.error("Resend API Error:", JSON.stringify(result.error, null, 2));
         return res.status(400).json({ error: result.error });
       }
 
+      console.log("Resend Success Response:", JSON.stringify(result.data, null, 2));
       res.status(200).json({ success: true, data: result.data });
     } catch (err: any) {
+      console.error("Unexpected Server Error in send-confirmation:", err);
       res.status(500).json({ error: err.message });
     }
   });
