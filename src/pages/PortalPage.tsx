@@ -54,20 +54,25 @@ export default function PortalPage() {
 
       if (data.success) {
         // Send confirmation email via backend
-        fetch("/api/send-confirmation", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: formData.get("email"),
-            name: formData.get("artistName"),
-            type: "portal"
-          })
-        }).then(async res => {
+        try {
+          const res = await fetch("/api/send-confirmation", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: formData.get("email"),
+              name: formData.get("artistName"),
+              type: "portal"
+            })
+          });
           if (!res.ok) {
             const resJson = await res.json().catch(() => ({}));
             console.error("Confirmation email server error", res.status, resJson);
+          } else {
+            console.log("Confirmation email sent successfully.");
           }
-        }).catch(e => console.error("Portal confirmation email fetch error", e));
+        } catch (e) {
+          console.error("Portal confirmation email fetch error", e);
+        }
 
         setSubmitted(true);
         setTimeout(() => {

@@ -3,8 +3,9 @@ import { createServer as createViteServer } from "vite";
 import { Resend } from "resend";
 import path from "path";
 
-// The user provided this key directly
-const resend = new Resend("re_Q3HWkAz1_B32bHJ8bwy9dWz6xDaYiJapv");
+// AI Studio automatically injects this at runtime from user secrets.
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : new Resend("re_Q3HWkAz1_B32bHJ8bwy9dWz6xDaYiJapv");
 
 async function startServer() {
   const app = express();
@@ -15,6 +16,7 @@ async function startServer() {
 
   // API Route for sending confirmation email
   app.post("/api/send-confirmation", async (req, res) => {
+    console.log("Confirmation requested:", req.body);
     const { email, name, type } = req.body;
 
     try {
@@ -106,6 +108,7 @@ async function startServer() {
       const result = await resend.emails.send({
         from: "Cotidor Records <noreply@cotidor.com>",
         to: [email],
+        cc: type === "portal" ? ["submissions@cotidor.com"] : type === "contact" ? ["info@cotidor.com"] : [],
         replyTo: "info@cotidor.com",
         subject: subject,
         html: html,

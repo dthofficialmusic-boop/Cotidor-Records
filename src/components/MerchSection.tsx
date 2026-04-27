@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface MerchSectionProps {
   onStoreClick?: () => void;
@@ -103,20 +104,20 @@ export default function MerchSection({ onStoreClick }: MerchSectionProps) {
       </div>
 
       {/* Bottom Marquee */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden whitespace-nowrap py-3 border-y border-white bg-black z-10">
+      <Link to="/about" className="absolute bottom-0 left-0 w-full overflow-hidden whitespace-nowrap py-3 border-y border-white bg-black z-10 block hover:opacity-90 transition-opacity">
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
           className="inline-block"
         >
           <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
-            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
+            ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE
           </span>
           <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
-            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
+            ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE
           </span>
         </motion.div>
-      </div>
+      </Link>
     </section>
   );
 }
