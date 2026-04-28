@@ -18,6 +18,7 @@ import TermsOfUsePage from './pages/TermsOfUsePage';
 import AboutUsPage from './pages/AboutUsPage';
 import ArtistProfilePage from './pages/ArtistProfilePage';
 import ContactPage from './pages/ContactPage';
+import PdfViewerPage from './pages/PdfViewerPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -63,6 +64,8 @@ export default function App() {
         <Route path="/about" element={<AboutUsPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/artist/:id" element={<ArtistProfilePage />} />
+        {/* Hidden internal routes */}
+        <Route path="/artistagreement" element={<PdfViewerPage />} />
       </Routes>
     </>
   );
