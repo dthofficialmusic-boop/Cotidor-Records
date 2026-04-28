@@ -65,116 +65,129 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-gradient-to-br from-black via-zinc-800 to-gray-400 animate-bg-move text-white font-sans selection:bg-white selection:text-black flex flex-col lowercase">
-      {/* HEADER */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/50 backdrop-blur-sm border-b border-white/10 px-6 h-20 flex justify-between items-center">
-        <button 
-          onClick={() => navigate('/')}
-          className="group flex items-center gap-2 text-[10px] font-black text-white/50 hover:text-white transition-colors tracking-[0.4em] lowercase"
-        >
-          <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> back to main
-        </button>
-        <img src="https://storage.googleapis.com/forcotidorrecords/white%20logo.png" alt="Cotidor Logo" className="h-8 w-auto" />
-      </nav>
+    <div className="min-h-[100dvh] bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col lowercase overflow-hidden">
+      {/* Decorative Background Image / Texture */}
+      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')", backgroundSize: '150px' }} />
 
-      <main className="flex-grow flex flex-col justify-center px-6 pt-32 pb-24 overflow-hidden">
-        <div className="max-w-4xl mx-auto w-full space-y-24">
-          <section className="text-left space-y-8">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-6xl md:text-[8rem] font-display font-black tracking-tighter leading-[0.85] text-white lowercase cursor-default"
-            >
-              contact
-            </motion.h1>
+      <main className="flex-grow flex flex-col justify-center px-6 pt-32 pb-24 lg:pt-40 lg:pb-32 relative z-10">
+        <div className="max-w-[100rem] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
+          
+          <section className="lg:col-span-5 text-left space-y-12 lg:sticky lg:top-32 h-fit">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-4">
+                <div className="w-12 h-0.5 bg-black"></div>
+                <span className="mono-label font-black tracking-[0.4em] uppercase text-xs md:text-sm">Reach Out</span>
+              </div>
+              <motion.h1 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-[15vw] lg:text-[8vw] font-display font-black tracking-tighter leading-[0.85] text-black lowercase cursor-default relative inline-block"
+              >
+                let's <br />
+                <span className="text-transparent" style={{ WebkitTextStroke: '2px black' }}>connect.</span>
+                <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 15, ease: "linear" }} className="absolute -top-12 -right-12 hidden lg:block">
+                  <span className="text-6xl text-black/10 font-bold">✶</span>
+                </motion.div>
+              </motion.h1>
+            </div>
             
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-lg md:text-2xl font-medium text-white/80 max-w-2xl leading-relaxed"
+              className="text-xl md:text-2xl font-medium text-black/80 max-w-xl leading-relaxed tracking-tight lowercase pl-0 lg:pl-16 lg:border-l-4 lg:border-black/5"
             >
-              get in touch. whether you're an artist looking for a home, or a partner looking to collaborate, our team is ready to listen.
+              whether you're an artist looking for a home, or a partner looking to collaborate, our team is ready to listen.
             </motion.p>
-          </section>
+            
+            <div className="space-y-8 pt-8">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="space-y-1 block group"
+              >
+                <h2 className="font-mono text-[10px] tracking-[0.4em] text-black/40 uppercase font-bold group-hover:text-black transition-colors">general inquiries</h2>
+                <a href="mailto:info@cotidor.com" className="block text-2xl md:text-4xl font-display font-black lowercase truncate relative w-fit">
+                  info@cotidor.com
+                  <div className="absolute bottom-1 left-0 w-full h-[0.1em] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+                </a>
+              </motion.div>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-white/20 pt-16">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="space-y-4"
-            >
-              <h2 className="font-mono text-xs tracking-[0.4em] text-white/50 uppercase">general inquiries</h2>
-              <a href="mailto:info@cotidor.com" className="block text-xl md:text-3xl lg:text-4xl font-display font-black hover:opacity-70 transition-opacity truncate">
-                info@cotidor.com
-              </a>
-            </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="space-y-1 block group"
+              >
+                <h2 className="font-mono text-[10px] tracking-[0.4em] text-black/40 uppercase font-bold group-hover:text-black transition-colors">submissions</h2>
+                <a href="mailto:submissions@cotidor.com" className="block text-2xl md:text-4xl font-display font-black lowercase truncate relative w-fit">
+                  submissions@cotidor.com
+                  <div className="absolute bottom-1 left-0 w-full h-[0.1em] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+                </a>
+              </motion.div>
 
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="space-y-4 min-w-0"
-            >
-              <h2 className="font-mono text-xs tracking-[0.4em] text-white/50 uppercase">submissions</h2>
-              <a href="mailto:submissions@cotidor.com" className="block text-xl md:text-3xl lg:text-4xl font-display font-black hover:opacity-70 transition-opacity truncate">
-                submissions@cotidor.com
-              </a>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="space-y-4 min-w-0"
-            >
-              <h2 className="font-mono text-xs tracking-[0.4em] text-white/50 uppercase">artist relations</h2>
-              <a href="mailto:artists@cotidor.com" className="block text-xl md:text-3xl lg:text-4xl font-display font-black hover:opacity-70 transition-opacity truncate">
-                artists@cotidor.com
-              </a>
-            </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="space-y-1 block group"
+              >
+                <h2 className="font-mono text-[10px] tracking-[0.4em] text-black/40 uppercase font-bold group-hover:text-black transition-colors">artist relations</h2>
+                <a href="mailto:artists@cotidor.com" className="block text-2xl md:text-4xl font-display font-black lowercase truncate relative w-fit">
+                  artists@cotidor.com
+                  <div className="absolute bottom-1 left-0 w-full h-[0.1em] bg-black scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
+                </a>
+              </motion.div>
+            </div>
           </section>
 
           <motion.section 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="pt-16 mt-16 flex justify-center"
+            className="lg:col-span-7 flex justify-center lg:justify-end"
           >
-            <div className="bg-white text-black p-8 md:p-16 w-full lg:max-w-[70%] relative">
-              <h2 className="text-3xl md:text-4xl font-display font-black mb-10 text-black">send a message</h2>
-              <form className="space-y-8" onSubmit={handleSubmit}>
+            <div className="bg-black text-white p-8 md:p-16 w-full relative shadow-2xl">
+              <div className="absolute top-0 right-0 p-6">
+                 <span className="text-3xl text-white/20 font-display font-black">✶</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-display font-black mb-10 text-white tracking-tighter lowercase">send a message</h2>
+              <form className="space-y-8 relative z-10" onSubmit={handleSubmit}>
                 {error && (
-                  <div className="p-4 bg-red-50 border-l-4 border-red-500 text-red-900 font-mono text-[10px] uppercase tracking-widest leading-relaxed">
+                  <div className="p-4 bg-red-500/10 border-l-4 border-red-500 text-red-200 font-mono text-[10px] uppercase tracking-widest leading-relaxed mt-4">
                     {error}
                   </div>
                 )}
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6">
-                  <div className="space-y-2 relative group">
-                    <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-widest text-black/60 block font-bold">Name</label>
-                    <input required type="text" id="name" name="name" className="w-full bg-[#f0f0f0] text-black px-4 py-3 placeholder:text-black/30 focus:outline-none focus:ring-2 focus:ring-black transition-all" placeholder="your name" />
+                  <div className="space-y-3 relative group">
+                    <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60 block font-bold group-focus-within:text-white transition-colors">Name</label>
+                    <input required type="text" id="name" name="name" className="w-full bg-transparent border-b-2 border-white/20 text-white px-0 py-3 placeholder:text-white/20 focus:outline-none focus:border-white transition-all font-medium text-lg lg:text-xl rounded-none" placeholder="your name" />
                   </div>
-                  <div className="space-y-2 relative group">
-                    <label htmlFor="email" className="font-mono text-[10px] uppercase tracking-widest text-black/60 block font-bold">Email</label>
-                    <input required type="email" id="email" name="email" className="w-full bg-[#f0f0f0] text-black px-4 py-3 placeholder:text-black/30 focus:outline-none focus:ring-2 focus:ring-black transition-all" placeholder="your@email.com" />
+                  <div className="space-y-3 relative group">
+                    <label htmlFor="email" className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60 block font-bold group-focus-within:text-white transition-colors">Email</label>
+                    <input required type="email" id="email" name="email" className="w-full bg-transparent border-b-2 border-white/20 text-white px-0 py-3 placeholder:text-white/20 focus:outline-none focus:border-white transition-all font-medium text-lg lg:text-xl rounded-none" placeholder="your@email.com" />
                   </div>
                 </div>
-                <div className="space-y-2 relative group">
-                  <label htmlFor="subject" className="font-mono text-[10px] uppercase tracking-widest text-black/60 block font-bold">Subject</label>
-                  <input required type="text" id="subject" name="subject" className="w-full bg-[#f0f0f0] text-black px-4 py-3 placeholder:text-black/30 focus:outline-none focus:ring-2 focus:ring-black transition-all" placeholder="what is this about?" />
+                <div className="space-y-3 relative group">
+                  <label htmlFor="subject" className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60 block font-bold group-focus-within:text-white transition-colors">Subject</label>
+                  <input required type="text" id="subject" name="subject" className="w-full bg-transparent border-b-2 border-white/20 text-white px-0 py-3 placeholder:text-white/20 focus:outline-none focus:border-white transition-all font-medium text-lg lg:text-xl rounded-none" placeholder="what is this about?" />
                 </div>
-                <div className="space-y-2 relative group">
-                  <label htmlFor="message" className="font-mono text-[10px] uppercase tracking-widest text-black/60 block font-bold">Message</label>
-                  <textarea required id="message" name="message" rows={5} className="w-full bg-[#f0f0f0] text-black px-4 py-3 placeholder:text-black/30 focus:outline-none focus:ring-2 focus:ring-black transition-all resize-none" placeholder="your message here..."></textarea>
+                <div className="space-y-3 relative group">
+                  <label htmlFor="message" className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60 block font-bold group-focus-within:text-white transition-colors">Message</label>
+                  <textarea required id="message" name="message" rows={5} className="w-full bg-transparent border-b-2 border-white/20 text-white px-0 py-3 placeholder:text-white/20 focus:outline-none focus:border-white transition-all font-medium text-lg lg:text-xl resize-none rounded-none" placeholder="your message here..."></textarea>
                 </div>
-                <button disabled={isSubmitting} type="submit" className="w-full md:w-auto inline-flex items-center justify-center font-mono text-xs tracking-[0.4em] text-white bg-black px-12 py-4 hover:bg-black/80 transition-all duration-300 disabled:opacity-50 border-none font-black lowercase mt-4 relative">
-                  {isSubmitting ? 'sending...' : 'submit message'}
-                </button>
+                <div className="pt-4">
+                  <button disabled={isSubmitting} type="submit" className="w-full md:w-auto inline-flex items-center justify-center font-mono text-xs tracking-[0.4em] text-black bg-white px-12 py-5 hover:bg-white/90 hover:scale-105 transition-all duration-300 disabled:opacity-50 border-none font-black uppercase shadow-xl relative overflow-hidden group">
+                    <span className="relative z-10">{isSubmitting ? 'sending...' : 'submit message'}</span>
+                  </button>
+                </div>
               </form>
 
               {/* SUCCESS MODAL */}
@@ -184,18 +197,19 @@ export default function ContactPage() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="absolute inset-0 bg-white z-10 flex flex-col items-center justify-center text-center p-8"
+                    className="absolute inset-0 bg-black z-20 flex flex-col items-center justify-center text-center p-8 border border-white/10"
                   >
-                    <CheckCircle size={64} className="mb-6 mb-4 text-green-500" strokeWidth={1.5} />
-                    <h3 className="text-3xl font-display font-black mb-4">message received</h3>
-                    <p className="text-black/60 font-mono text-xs tracking-widest uppercase">
+                    <CheckCircle size={64} className="mb-6 text-white" strokeWidth={1.5} />
+                    <h3 className="text-4xl md:text-5xl font-display font-black mb-6 tracking-tighter lowercase">received.</h3>
+                    <div className="w-12 h-1 bg-white mb-6"></div>
+                    <p className="text-white/60 font-medium text-lg tracking-tight lowercase">
                       thank you. your message has been received by our team. you should receive a response in 1-2 business days.
                     </p>
                     <button 
                       onClick={() => setShowSuccess(false)}
-                      className="mt-12 font-mono text-[10px] tracking-widest uppercase text-black/40 hover:text-black transition-colors"
+                      className="mt-12 group inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.4em] uppercase text-white/40 hover:text-white transition-colors font-bold"
                     >
-                      close
+                      <ArrowLeft size={12} className="group-hover:-translate-x-1 transition-transform" /> back to form
                     </button>
                   </motion.div>
                 )}
@@ -206,8 +220,8 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <footer className="py-16 bg-black border-t border-white/5 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] text-white/70 font-black tracking-[0.4em] text-center md:text-left lowercase">
+      <footer className="py-16 bg-black text-white border-t border-white/10 px-6 mt-12 overflow-hidden relative z-10">
+        <div className="max-w-[100rem] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] text-white/50 font-black tracking-[0.4em] text-center md:text-left lowercase">
           <div className="space-y-1">
             <p>© 2026 cotidor records</p>
             <p>ryzer music group llc</p>

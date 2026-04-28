@@ -30,6 +30,36 @@ function ScrollToTop() {
   return null;
 }
 
+function GlobalLayout() {
+  const { pathname } = useLocation();
+  const hideNavPaths = ['/privacy', '/terms'];
+  const showNav = !hideNavPaths.includes(pathname);
+
+  const handleStoreClick = () => {
+    window.open('https://cotidor-records.teemill.com/', '_blank');
+  };
+
+  return (
+    <>
+      <ScrollToTop />
+      {showNav && <Navigation onStoreClick={handleStoreClick} />}
+      <div className={`${showNav ? 'pt-20' : ''}`}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/apply" element={<PortalPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsOfUsePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/artist/:id" element={<ArtistProfilePage />} />
+          {/* Hidden internal routes */}
+          <Route path="/artistagreement" element={<PdfViewerPage />} />
+        </Routes>
+      </div>
+    </>
+  );
+}
+
 function HomePage() {
   const handleStoreClick = () => {
     window.open('https://cotidor-records.teemill.com/', '_blank');
@@ -37,14 +67,19 @@ function HomePage() {
 
   return (
     <div className="min-h-[100dvh] bg-brand-bg text-brand-text selection:bg-white selection:text-black overflow-x-hidden">
-      <Navigation onStoreClick={handleStoreClick} />
-      
-      <main className="pt-20">
+      <main>
         <Hero />
         <ValuesSection />
         <JoinSection />
         <AboutSection />
         <MerchSection onStoreClick={handleStoreClick} />
+        <section className="w-full bg-black border-t border-white/10">
+          <img 
+            src="https://storage.googleapis.com/forcotidorrecords/IMG_6031.png" 
+            alt="Cotidor Records" 
+            className="w-full h-auto object-cover"
+          />
+        </section>
       </main>
 
       <Footer onStoreClick={handleStoreClick} />
@@ -53,22 +88,7 @@ function HomePage() {
 }
 
 export default function App() {
-  return (
-    <>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/apply" element={<PortalPage />} />
-        <Route path="/privacy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms" element={<TermsOfUsePage />} />
-        <Route path="/about" element={<AboutUsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/artist/:id" element={<ArtistProfilePage />} />
-        {/* Hidden internal routes */}
-        <Route path="/artistagreement" element={<PdfViewerPage />} />
-      </Routes>
-    </>
-  );
+  return <GlobalLayout />;
 }
 
 

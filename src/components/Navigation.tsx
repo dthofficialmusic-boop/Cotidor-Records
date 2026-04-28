@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
-  { name: 'OUR ETHOS', href: '/#values', isHash: true },
+  { name: 'HOME', href: '/', isHash: false },
   { name: 'ARTISTS', href: '/#artists', isHash: true },
   { name: 'ABOUT US', href: '/about', isHash: false },
   { name: 'CONTACT', href: '/contact', isHash: false },

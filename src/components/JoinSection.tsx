@@ -4,24 +4,6 @@ import { Link } from 'react-router-dom';
 import { artistsData as artists } from '../data/artists';
 
 function ArtistCard({ artist, className, index }: { artist: any, className: string, index: number, key?: string }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTapped, setIsTapped] = useState(false);
-  const [isSporadic, setIsSporadic] = useState(false);
-
-  useEffect(() => {
-    if (!artist.hoverImage) return;
-    let timeout: any;
-    const toggle = () => {
-      setIsSporadic(true);
-      setTimeout(() => setIsSporadic(false), 150 + Math.random() * 350);
-      timeout = setTimeout(toggle, 2000 + Math.random() * 5000);
-    };
-    timeout = setTimeout(toggle, Math.random() * 3000);
-    return () => clearTimeout(timeout);
-  }, [artist.hoverImage]);
-
-  const showAlt = isHovered || isTapped || isSporadic;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -29,26 +11,15 @@ function ArtistCard({ artist, className, index }: { artist: any, className: stri
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       className={`group relative flex flex-col ${className} focus:outline-none`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => { setIsHovered(false); setIsTapped(false); }}
-      onClick={() => setIsTapped(!isTapped)}
     >
       <Link to={`/artist/${artist.id}`} className="block focus:outline-none" aria-label={`View ${artist.name}`}>
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0a0a] cursor-pointer">
           <img 
             src={artist.image} 
             alt={artist.name} 
-            className={`absolute inset-0 w-full h-full object-cover opacity-90 transition-all duration-700 ease-out ${artist.hoverImage && showAlt ? 'opacity-0 scale-105' : 'scale-100'} ${artist.grainy ? 'contrast-125 saturate-150 brightness-110 blur-[0.4px] sepia-[.15] hue-rotate-[5deg]' : ''} group-hover:scale-105`} 
+            className={`absolute inset-0 w-full h-full object-cover opacity-90 transition-all duration-700 ease-out group-hover:scale-105 ${artist.grainy ? 'contrast-125 saturate-150 brightness-110 blur-[0.4px] sepia-[.15] hue-rotate-[5deg]' : ''}`} 
             referrerPolicy="no-referrer"
           />
-          {artist.hoverImage && (
-            <img 
-              src={artist.hoverImage} 
-              alt={`${artist.name} alternate`} 
-              className={`absolute inset-0 w-full h-full object-cover opacity-0 scale-95 transition-all duration-700 ease-out ${artist.grainy ? 'contrast-125 saturate-150 brightness-110 blur-[0.4px] sepia-[.15] hue-rotate-[5deg]' : ''} ${showAlt ? '!opacity-90 !scale-105' : ''} group-hover:opacity-90 group-hover:scale-105`} 
-              referrerPolicy="no-referrer"
-            />
-          )}
           {artist.grainy && (
             <div className="absolute inset-0 z-[5] mix-blend-overlay opacity-[0.1] bg-neutral-400 pointer-events-none" style={{ backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Dissolve_Noise_Texture.png')" }} />
           )}
@@ -68,43 +39,43 @@ function ArtistCard({ artist, className, index }: { artist: any, className: stri
 
 export default function JoinSection() {
   return (
-    <section id="artists" className="relative w-full flex flex-col items-start justify-start px-6 pt-24 pb-32 bg-black text-white">
+    <section id="artists" className="relative w-full flex flex-col items-start justify-start px-6 pt-16 pb-32 bg-black text-white">
       <div className="w-full max-w-7xl mx-auto flex flex-col">
-        {/* Section Header */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <motion.p
+        {/* ARTISTS GRID */}
+        <div className="flex flex-col w-full border border-white/40">
+          {/* Section Header (Now inside table) */}
+          <div className="p-6 md:p-8 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/40 bg-black">
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="font-mono text-xs md:text-sm text-white/50 lowercase mb-2"
+              >
+                explore
+              </motion.p>
+              <motion.h2 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-left"
+              >
+                our artists
+              </motion.h2>
+            </div>
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-mono text-xs md:text-sm text-white/50 lowercase mb-2"
+              className="hidden md:flex flex-col items-start md:items-end justify-end mt-8 md:mt-0"
             >
-              explore
-            </motion.p>
-            <motion.h2 
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-left"
-            >
-              our artists
-            </motion.h2>
+              <p className="font-mono text-xs md:text-sm text-white/50 lowercase mb-2">want to be a cotidor artist?</p>
+              <Link to="/apply" className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-left md:text-right hover:text-white/80 transition-colors">
+                apply now
+              </Link>
+            </motion.div>
           </div>
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="hidden md:flex flex-col items-start md:items-end justify-end mt-8 md:mt-0"
-          >
-            <p className="font-mono text-xs md:text-sm text-white/50 lowercase mb-2">want to be a cotidor artist?</p>
-            <Link to="/apply" className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-left md:text-right hover:text-white/80 transition-colors">
-              apply now
-            </Link>
-          </motion.div>
-        </div>
 
-        {/* ARTISTS GRID */}
-        <div className="flex flex-col w-full border border-white/40">
           {/* Row 1 - 3 Artists */}
           <div className="flex flex-col md:flex-row w-full md:border-b border-white/40">
             {artists.slice(0, 3).map((artist, i) => (
@@ -117,14 +88,14 @@ export default function JoinSection() {
             ))}
           </div>
 
-          {/* Row 2 - 2 Artists */}
-          <div className="flex flex-col md:flex-row w-full justify-center bg-black">
-            {artists.slice(3, 5).map((artist, i) => (
+          {/* Row 2 - Remaining Artists (Centered) */}
+          <div className="flex flex-col md:flex-row w-full bg-black justify-center">
+            {artists.slice(3).map((artist, i) => (
               <ArtistCard
                 key={artist.name}
                 artist={artist}
                 index={i + 3}
-                className={`w-full md:w-1/3 border-b md:border-b-0 ${i === 0 ? 'md:border-r md:border-l' : 'md:border-r'} border-white/40 bg-black last:border-b-0`}
+                className={`w-full md:w-1/3 border-b md:border-b-0 ${i !== (artists.slice(3).length - 1) ? 'md:border-r' : ''} border-white/40 bg-black last:border-b-0`}
               />
             ))}
           </div>

@@ -24,7 +24,6 @@ export default function Footer({ onStoreClick }: FooterProps) {
             <span className="mono-label block text-white/50">Navigation</span>
             <ul className="space-y-3">
               {[
-                { name: 'OUR ETHOS', href: '/#values' },
                 { name: 'ARTISTS', href: '/#artists' },
                 { name: 'ABOUT US', href: '/about', isRoute: true },
                 { name: 'STORE', href: '#', isStore: true },

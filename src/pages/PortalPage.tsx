@@ -95,17 +95,6 @@ export default function PortalPage() {
 
   return (
     <div className="min-h-[100dvh] bg-white text-black font-sans selection:bg-black selection:text-white flex flex-col">
-      {/* HEADER */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-black/10 px-8 h-20 flex justify-between items-center">
-        <button 
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-black hover:opacity-70 transition-opacity"
-        >
-          <ArrowLeft size={14} /> Back to Cotidor
-        </button>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-black/40">Artist Portal 2026</span>
-      </nav>
-
       <main className="flex-grow pt-32 pb-20 px-6">
         <div className="max-w-3xl mx-auto space-y-16">
           {!submitted ? (

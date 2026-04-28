@@ -104,20 +104,20 @@ export default function MerchSection({ onStoreClick }: MerchSectionProps) {
       </div>
 
       {/* Bottom Marquee */}
-      <Link to="/about" className="absolute bottom-0 left-0 w-full overflow-hidden whitespace-nowrap py-3 border-y border-white bg-black z-10 block hover:opacity-90 transition-opacity">
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden whitespace-nowrap py-3 border-y border-white bg-black z-10">
         <motion.div
           animate={{ x: ["-50%", "0%"] }}
           transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
           className="inline-block"
         >
           <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
-            ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE
+            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
           </span>
           <span className="font-display tracking-normal font-black text-4xl md:text-5xl lowercase text-white px-4" style={{ WebkitTextStroke: '2px #000' }}>
-            ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE ABOUT US PAGE
+            COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP COTIDOR RECORDS MERCH OFFICIAL SHOP
           </span>
         </motion.div>
-      </Link>
+      </div>
     </section>
   );
 }

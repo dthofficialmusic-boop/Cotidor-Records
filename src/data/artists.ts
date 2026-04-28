@@ -9,12 +9,15 @@ export const artistsData = [
   },
   { 
     id: "grlvenom",
-    name: "GRLVENOM", 
+    name: "grlvenom", 
     image: "https://storage.googleapis.com/forcotidorrecords/GRLVENOM1.png", 
     hoverImage: "https://storage.googleapis.com/forcotidorrecords/GRLVENOM2.png", 
     grainy: true,
-    bio: "grlvenom (stylized as GRLVENOM) is girl-group based in south korea under owwi entertainment. their sound combines the visceral confrontation of digital decay and modern angst. aniah, shikyeon, olivia, and yeonjang work in harmony, blending rap, vocals, and charisma to the stage. debuting in 2025, they have established a solid fandom — which they call ‘antidotes'. signing with cotidor records in 2026 for western management and publishment, grlvenom is beyond ready to transcend borders through their impactful sonics.",
-    genre: "Pop / K-Pop"
+    bio: "grlvenom is a force of raw sonic power, blending abrasive textures with spectral melodies. her presence in the underground scene is marked by an uncompromising commitment to aesthetic purity and digital distortion.",
+    genre: "Experimental Sound Design",
+    socials: {
+      instagram: "https://www.instagram.com/grlvenom"
+    }
   },
   { 
     id: "withprivilege",
@@ -32,7 +35,10 @@ export const artistsData = [
     hoverImage: "https://storage.googleapis.com/forcotidorrecords/YllonaMadison2.png", 
     grainy: true,
     bio: "yllona madison brings a unique perspective to the contemporary experimental scene. combining organic instruments with heavy processing, her tracks are cinematic and emotionally charged. she continues to explore the intersections of dark ambient and drone music with her new releases.",
-    genre: "Dark Ambient / Noise"
+    genre: "Pop & Hyperpop",
+    socials: {
+      instagram: "https://www.instagram.com/yllonaamadison/"
+    }
   },
   { 
     id: "yohara-scott",
