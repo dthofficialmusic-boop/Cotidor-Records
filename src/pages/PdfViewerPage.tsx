@@ -1,13 +1,13 @@
 import React from 'react';
 
-// You can replace this URL with the actual link to your PDF file (e.g., a Google Drive link, AWS S3 link, or a file uploaded to your public folder)
 const PDF_URL = "https://storage.googleapis.com/forcotidorrecords/Cotidor_Records_Artist_Services_Understanding.pdf";
+const GOOGLE_VIEWER_URL = `https://docs.google.com/gview?url=${encodeURIComponent(PDF_URL)}&embedded=true`;
 
 export default function PdfViewerPage() {
   return (
-    <div className="w-full h-screen bg-black overflow-hidden m-0 p-0">
+    <div className="w-full h-screen bg-[#ececec] overflow-hidden m-0 p-0" style={{ WebkitOverflowScrolling: 'touch' }}>
       <iframe
-        src={`${PDF_URL}#toolbar=0`}
+        src={GOOGLE_VIEWER_URL}
         className="w-full h-full border-none m-0 p-0"
         title="PDF Document"
       />
