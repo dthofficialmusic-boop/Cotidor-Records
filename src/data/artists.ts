@@ -20,15 +20,6 @@ export const artistsData = [
     }
   },
   { 
-    id: "withprivilege",
-    name: "WithPrivilege", 
-    image: "https://storage.googleapis.com/forcotidorrecords/WithPrivilege1.png", 
-    hoverImage: "https://storage.googleapis.com/forcotidorrecords/WithPrivilege2.png", 
-    grainy: true,
-    bio: "withprivilege explores the space between melodic noise and fragmented rhythms. their work challenges traditional club music structures, opting for heavy, relentless beats intermixed with melancholic undertones. their upcoming ep promises a visceral, uncompromising experience.",
-    genre: "Deconstructed Club"
-  },
-  { 
     id: "yllona-madison",
     name: "Yllona Madison", 
     image: "https://storage.googleapis.com/forcotidorrecords/YllonaMadison1.png", 
