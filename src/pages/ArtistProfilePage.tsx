@@ -75,28 +75,28 @@ export default function ArtistProfilePage() {
                 <div className="flex flex-col gap-6">
                   <h3 className="text-sm font-black tracking-widest text-white/50">listen / follow</h3>
                   <div className="flex flex-wrap gap-4">
-                    {(artist.socials as any).spotify && (
-                      <a href={(artist.socials as any).spotify} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                    {artist.socials.spotify && (
+                      <a href={artist.socials.spotify} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
                         <Play size={16} /> spotify
                       </a>
                     )}
-                    {(artist.socials as any).appleMusic && (
-                      <a href={(artist.socials as any).appleMusic} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                    {artist.socials.appleMusic && (
+                      <a href={artist.socials.appleMusic} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
                         <Music size={16} /> apple music
                       </a>
                     )}
-                    {(artist.socials as any).soundcloud && (
-                      <a href={(artist.socials as any).soundcloud} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                    {artist.socials.soundcloud && (
+                      <a href={artist.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
                         <Play size={16} /> soundcloud
                       </a>
                     )}
-                    {(artist.socials as any).youtube && (
-                      <a href={(artist.socials as any).youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                    {artist.socials.youtube && (
+                      <a href={artist.socials.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
                         <Youtube size={16} /> youtube
                       </a>
                     )}
-                    {(artist.socials as any).instagram && (
-                      <a href={(artist.socials as any).instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                    {artist.socials.instagram && (
+                      <a href={artist.socials.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
                         <Instagram size={16} /> instagram
                       </a>
                     )}

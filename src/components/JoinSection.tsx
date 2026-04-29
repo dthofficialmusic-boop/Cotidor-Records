@@ -88,14 +88,14 @@ export default function JoinSection() {
             ))}
           </div>
 
-          {/* Row 2 - Remaining Artists (Centered) */}
-          <div className="flex flex-col md:flex-row w-full bg-black justify-center">
-            {artists.slice(3).map((artist, i) => (
+          {/* Row 2 - 3 Artists */}
+          <div className="flex flex-col md:flex-row w-full bg-black">
+            {artists.slice(3, 6).map((artist, i) => (
               <ArtistCard
                 key={artist.name}
                 artist={artist}
                 index={i + 3}
-                className={`w-full md:w-1/3 border-b md:border-b-0 ${i !== (artists.slice(3).length - 1) ? 'md:border-r' : ''} border-white/40 bg-black last:border-b-0`}
+                className={`w-full md:w-1/3 border-b md:border-b-0 ${i !== 2 ? 'md:border-r' : ''} border-white/40 bg-black last:border-b-0`}
               />
             ))}
           </div>
