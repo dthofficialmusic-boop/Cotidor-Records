@@ -29,19 +29,19 @@ export default function ArtistProfilePage() {
   return (
     <div className="min-h-[100dvh] bg-black text-white font-sans selection:bg-white selection:text-black flex flex-col lowercase">
       <main className="flex-grow pt-20">
-        <div className="max-w-6xl mx-auto px-6 py-12 md:py-24">
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start justify-start w-full">
+        <div className="max-w-6xl mx-auto px-6 py-12 md:py-20">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10 items-start justify-start w-full">
             
             {/* Image Column */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="relative aspect-[3/4] w-full md:w-[35%] max-w-sm mx-0 overflow-hidden bg-[#0a0a0a] shrink-0"
+              className="relative aspect-[3/4] w-full md:w-[42%] max-w-md mx-0 overflow-hidden bg-[#0a0a0a] shrink-0"
             >
               <img 
                 src={profileImage} 
                 alt={artist.name} 
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out hover:scale-105 ${artist.grainy ? 'contrast-125 saturate-150 brightness-110 blur-[0.4px] sepia-[.15] hue-rotate-[5deg]' : ''}`}
+                className={`absolute inset-0 w-full h-full object-cover scale-105 transition-all duration-700 ease-out hover:scale-110 ${artist.grainy ? 'contrast-125 saturate-150 brightness-110 blur-[0.4px] sepia-[.15] hue-rotate-[5deg]' : ''}`}
                 referrerPolicy="no-referrer"
               />
               {artist.grainy && (

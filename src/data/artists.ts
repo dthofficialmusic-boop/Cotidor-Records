@@ -2,10 +2,14 @@ export const artistsData = [
   { 
     id: "christopher-lucio",
     name: "not lucio", 
-    image: "https://storage.googleapis.com/forcotidorrecords/ChristopherLucio2.jpg", 
-    hoverImage: "https://storage.googleapis.com/forcotidorrecords/ChristopherLucio1.png",
+    image: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20184627.png", 
+    hoverImage: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20184627.png",
     bio: "not lucio is an upcoming artist pushing the boundaries of sound, blending electronic and avant-garde elements to create a distinctive sonic atmosphere. signing with cotidor records, he is preparing to release his highly anticipated debut project.",
-    genre: "Electronic / Avant-Garde"
+    genre: "Electronic / Avant-Garde",
+    socials: {
+      appleMusic: "https://music.apple.com/artist/lucio-boii/6771119692",
+      spotify: "https://open.spotify.com/artist/6uWs5dcke71QYjopVbzbmg"
+    }
   },
   { 
     id: "z3nith",
@@ -53,6 +57,19 @@ export const artistsData = [
       instagram: "https://www.instagram.com/p/DW-jufhjMiP/",
       youtube: "https://www.youtube.com/@LeeLeeJOfficial",
       appleMusic: "https://music.apple.com/ky/artist/lee-lee-j/1699627216"
+    }
+  },
+  { 
+    id: "greta-marie",
+    name: "Greta Marie", 
+    image: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20190641.png", 
+    hoverImage: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20191151.png", 
+    bio: "greta marie creates gentle, vulnerable, and relatable music designed to remind listeners they are not alone. her sound has developed extensively over the last two years, evolving into an atmospheric blend of piano, warm pads, and sweeping strings that craft a deeply emotional and immersive sonic landscape.",
+    genre: "Atmospheric Indie Pop",
+    socials: {
+      spotify: "https://open.spotify.com/artist/30NSqhgUseQC5P3hNhaNfx",
+      instagram: "https://www.instagram.com/songsbygreta",
+      appleMusic: "https://music.apple.com/us/artist/greta-marie/1781576550"
     }
   }
 ];
