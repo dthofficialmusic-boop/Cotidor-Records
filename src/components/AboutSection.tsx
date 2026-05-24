@@ -5,17 +5,6 @@ import { Link } from 'react-router-dom';
 export default function AboutSection() {
   return (
     <section id="about" className="py-32 px-6 bg-white text-black relative overflow-hidden">
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 opacity-5 pointer-events-none">
-        <motion.div
-           animate={{ rotate: -360 }}
-           transition={{ repeat: Infinity, duration: 80, ease: "linear" }}
-        >
-          <svg width="600" height="600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round">
-             <circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path>
-          </svg>
-        </motion.div>
-      </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
           <motion.div

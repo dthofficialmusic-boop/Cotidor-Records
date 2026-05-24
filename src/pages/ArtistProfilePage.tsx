@@ -100,6 +100,11 @@ export default function ArtistProfilePage() {
                         <Instagram size={16} /> instagram
                       </a>
                     )}
+                    {artist.socials.tiktok && (
+                      <a href={artist.socials.tiktok} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 border border-white/20 px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+                        <ExternalLink size={16} /> tiktok
+                      </a>
+                    )}
                   </div>
                 </div>
               )}

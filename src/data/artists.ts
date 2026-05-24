@@ -1,14 +1,31 @@
 export const artistsData = [
   { 
-    id: "christopher-lucio",
-    name: "not lucio", 
-    image: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20184627.png", 
-    hoverImage: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20184627.png",
-    bio: "not lucio is an upcoming artist pushing the boundaries of sound, blending electronic and avant-garde elements to create a distinctive sonic atmosphere. signing with cotidor records, he is preparing to release his highly anticipated debut project.",
-    genre: "Electronic / Avant-Garde",
+    id: "hayds",
+    name: "hayds", 
+    image: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20195957.png", 
+    hoverImage: "https://storage.googleapis.com/forcotidorrecords/639986363_18098119043493053_3908921746716590961_n.jpg", 
+    bio: "hayds is an indie/alternative project defined by raw emotional vulnerability, atmospheric guitar-driven soundscapes, and personal lyricism. blending introspective bedroom-pop elements with alternative rock textures, his music captures a distinctive and bittersweet nostalgic vibe.",
+    genre: "Indie / Alternative",
     socials: {
-      appleMusic: "https://music.apple.com/artist/lucio-boii/6771119692",
-      spotify: "https://open.spotify.com/artist/6uWs5dcke71QYjopVbzbmg"
+      spotify: "https://open.spotify.com/artist/0OIEpFFn2coJ5zeiMzrEdg",
+      instagram: "https://www.instagram.com/h.a.y.ds/",
+      youtube: "https://www.youtube.com/@haydssss/videos",
+      tiktok: "https://www.tiktok.com/@h.a.y.d.s",
+      appleMusic: "https://music.apple.com/us/artist/hayds/1719414977"
+    }
+  },
+  { 
+    id: "greta-marie",
+    name: "Greta Marie", 
+    image: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20190641.png", 
+    hoverImage: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20191151.png", 
+    bio: "greta marie creates gentle, vulnerable, and relatable music designed to remind listeners they are not alone. her sound has developed extensively over the last two years, evolving into an atmospheric blend of piano, warm pads, and sweeping strings that craft a deeply emotional and immersive sonic landscape.",
+    genre: "Atmospheric Indie Pop",
+    socials: {
+      spotify: "https://open.spotify.com/artist/30NSqhgUseQC5P3hNhaNfx",
+      instagram: "https://www.instagram.com/songsbygreta",
+      appleMusic: "https://music.apple.com/us/artist/greta-marie/1781576550",
+      youtube: "https://www.youtube.com/@gretamariemusic"
     }
   },
   { 
@@ -20,7 +37,8 @@ export const artistsData = [
     genre: "Rage Trap & Hip Hop",
     socials: {
       soundcloud: "https://soundcloud.com/z3nith666",
-      instagram: "https://www.instagram.com/z3nith666"
+      instagram: "https://www.instagram.com/z3nith666",
+      youtube: "https://www.youtube.com/@z3nith666"
     }
   },
   { 
@@ -34,15 +52,6 @@ export const artistsData = [
     socials: {
       instagram: "https://www.instagram.com/yllonaamadison/"
     }
-  },
-  { 
-    id: "yohara-scott",
-    name: "Yohara Scott", 
-    image: "https://storage.googleapis.com/forcotidorrecords/KaleemiScott2.png", 
-    hoverImage: "https://storage.googleapis.com/forcotidorrecords/KaleemiScott1.png", 
-    grainy: true,
-    bio: "yohara scott blends atmospheric textures with uncompromising rhythmic structures. her background in classical music informs her intricate compositions, which seamlessly merge with hard-hitting experimental techno beats. her live sets are known to be an immersive, hypnotic journey.",
-    genre: "Experimental Techno"
   },
   { 
     id: "lee-lee-j",
@@ -60,18 +69,15 @@ export const artistsData = [
     }
   },
   { 
-    id: "greta-marie",
-    name: "Greta Marie", 
-    image: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20190641.png", 
-    hoverImage: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20191151.png", 
-    bio: "greta marie creates gentle, vulnerable, and relatable music designed to remind listeners they are not alone. her sound has developed extensively over the last two years, evolving into an atmospheric blend of piano, warm pads, and sweeping strings that craft a deeply emotional and immersive sonic landscape.",
-    genre: "Atmospheric Indie Pop",
+    id: "christopher-lucio",
+    name: "not lucio", 
+    image: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20184627.png", 
+    hoverImage: "https://storage.googleapis.com/forcotidorrecords/Screenshot%202026-05-23%20184627.png",
+    bio: "not lucio is an upcoming artist pushing the boundaries of sound, blending electronic and avant-garde elements to create a distinctive sonic atmosphere. signing with cotidor records, he is preparing to release his highly anticipated debut project.",
+    genre: "Electronic / Avant-Garde",
     socials: {
-      spotify: "https://open.spotify.com/artist/30NSqhgUseQC5P3hNhaNfx",
-      instagram: "https://www.instagram.com/songsbygreta",
-      appleMusic: "https://music.apple.com/us/artist/greta-marie/1781576550"
+      appleMusic: "https://music.apple.com/artist/lucio-boii/6771119692",
+      spotify: "https://open.spotify.com/artist/6uWs5dcke71QYjopVbzbmg"
     }
   }
 ];
-
-

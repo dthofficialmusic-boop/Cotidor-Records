@@ -19,6 +19,8 @@ import AboutUsPage from './pages/AboutUsPage';
 import ArtistProfilePage from './pages/ArtistProfilePage';
 import ContactPage from './pages/ContactPage';
 import PdfViewerPage from './pages/PdfViewerPage';
+import ReleaseSmartlinkPage from './pages/ReleaseSmartlinkPage';
+import ReleasesPage from './pages/ReleasesPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -33,7 +35,7 @@ function ScrollToTop() {
 function GlobalLayout() {
   const { pathname } = useLocation();
   const hideNavPaths = ['/privacy', '/terms'];
-  const showNav = !hideNavPaths.includes(pathname);
+  const showNav = !hideNavPaths.includes(pathname) && !pathname.startsWith('/release/');
 
   const handleStoreClick = () => {
     window.open('https://cotidor-records.teemill.com/', '_blank');
@@ -52,6 +54,8 @@ function GlobalLayout() {
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/artist/:id" element={<ArtistProfilePage />} />
+          <Route path="/release/:id" element={<ReleaseSmartlinkPage />} />
+          <Route path="/releases" element={<ReleasesPage />} />
           {/* Hidden internal routes */}
           <Route path="/artistagreement" element={<PdfViewerPage />} />
         </Routes>
@@ -69,8 +73,8 @@ function HomePage() {
     <div className="min-h-[100dvh] bg-brand-bg text-brand-text selection:bg-white selection:text-black overflow-x-hidden">
       <main>
         <Hero />
-        <ValuesSection />
         <JoinSection />
+        <ValuesSection />
         <AboutSection />
         <MerchSection onStoreClick={handleStoreClick} />
         <section className="w-full bg-black border-t border-white/10">
